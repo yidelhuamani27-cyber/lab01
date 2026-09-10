@@ -1,4 +1,6 @@
 // Parte A: Definición de la estructura
+#include <stdio.h>
+#define MAX_PROCESOS 10
 struct Proceso {
     int pid;
     char nombre[20];
