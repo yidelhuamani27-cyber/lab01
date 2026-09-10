@@ -4,6 +4,12 @@ struct Proceso {
     char nombre[20];
     int prioridad; // 1 (alta) a 5 (baja)
 };
+//Parte C: Prototipo de la función de búsqueda
+int buscarMayorPrioridad(struct Proceso *procesos, int n);
+
+int main() {
+    struct Proceso procesos[MAX_PROCESOS];
+    int n = 0;
 // Parte B: Registro de procesos
     printf("¿Cuántos procesos desea ingresar (máximo %d)? ", MAX_PROCESOS);
     if (scanf("%d", &n) != 1 || n <= 0) {
@@ -25,3 +31,18 @@ struct Proceso {
         printf("Prioridad (1-5): ");
         scanf("%d", &procesos[i].prioridad);
     }
+// Parte C: Llamada a la función de búsqueda
+    int indice_ganador = buscarMayorPrioridad(procesos, n);
+// Parte C: Implementación de la función mediante punteros
+int buscarMayorPrioridad(struct Proceso *procesos, int n) {
+    if (n <= 0) return -1;
+
+    int indice_menor = 0;
+    // Se accede mediante el puntero utilizando la notación de arreglos o aritmética de punteros
+    for (int i = 1; i < n; i++) {
+        if ((procesos + i)->prioridad < (procesos + indice_menor)->prioridad) {
+            indice_menor = i;
+        }
+    }
+    return indice_menor;
+}
