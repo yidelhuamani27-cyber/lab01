@@ -33,6 +33,16 @@ int main() {
     }
 // Parte C: Llamada a la función de búsqueda
     int indice_ganador = buscarMayorPrioridad(procesos, n);
+// Parte D: Presentación de resultados
+    if (indice_ganador != -1) {
+        printf("\nProceso de mayor prioridad:\n");
+        printf("PID: %d\n", procesos[indice_ganador].pid);
+        printf("Nombre: %s\n", procesos[indice_ganador].nombre);
+        printf("Prioridad: %d\n", procesos[indice_ganador].prioridad);
+    }
+
+    return 0;
+}
 // Parte C: Implementación de la función mediante punteros
 int buscarMayorPrioridad(struct Proceso *procesos, int n) {
     if (n <= 0) return -1;
