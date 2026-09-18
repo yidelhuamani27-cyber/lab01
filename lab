@@ -1,0 +1,125 @@
+struct proceso{
+	int pid[50];
+	char nombre;
+	int prioridad;
+	
+};
+struc proceso* bucarMayorPrioridad(struc proceso *proceso, int cantidad){
+	if (cantidad <= 0 ) return NULL;
+	struct proceso *ganador
+}
+#include <stdio.h>
+
+struct Proceso {
+    int pid;
+    char nombre[50];
+    int prioridad;
+};
+
+struct Proceso* buscarMayorPrioridad(struct Proceso *procesos, int cantidad) {
+    if (cantidad <= 0) return NULL;
+    struct Proceso *ganador = &procesos[0];
+    for (int i = 1; i < cantidad; i++) {
+        if (procesos[i].prioridad < ganador->prioridad) {
+            ganador = &procesos[i];
+        }
+    }
+    return ganador;
+}
+
+int main() {
+    printf("========================================\n");
+    printf(" Estudiante: Yidel Huamani\n");
+    printf(" Curso: Sistemas Operativos (IS380)\n");
+    printf("========================================\n\n");
+
+    struct Proceso listaProcesos[5];
+
+    printf("--- REGISTRO DE PROCESOS (5) ---\n");
+    for (int i = 0; i < 5; i++) {
+        printf("\nProceso #%d:\n", i + 1);
+        printf("  Ingrese PID (ej. 101): ");
+        scanf("%d", &listaProcesos[i].pid);
+        printf("  Ingrese Nombre (ej. chrome): ");
+        scanf("%s", listaProcesos[i].nombre);
+        
+        do {
+            printf("  Ingrese Prioridad (1: Mas alta - 5: Mas baja): ");
+            scanf("%d", &listaProcesos[i].prioridad);
+            if (listaProcesos[i].prioridad < 1 || listaProcesos[i].prioridad > 5) {
+                printf("  [!] Debe ser un numero entre 1 y 5.\n");
+            }
+        } while (listaProcesos[i].prioridad < 1 || listaProcesos[i].prioridad > 5);
+    }
+
+    struct Proceso *procesoGanador = buscarMayorPrioridad(listaProcesos, 5);
+
+    printf("\n========================================\n");
+    printf("       PROCESO A EJECUTAR PRIMERO       \n");
+    printf("========================================\n");
+    if (procesoGanador != NULL) {
+        printf("  PID       : %d\n", procesoGanador->pid);
+        printf("  Nombre    : %s\n", procesoGanador->nombre);
+        printf("  Prioridad : %d\n", procesoGanador->prioridad);
+    }
+    printf("========================================\n");
+
+    return 0;
+}#include <stdio.h>
+
+struct Proceso {
+    int pid;
+    char nombre[50];
+    int prioridad;
+};
+
+struct Proceso* buscarMayorPrioridad(struct Proceso *procesos, int cantidad) {
+    if (cantidad <= 0) return NULL;
+    struct Proceso *ganador = &procesos[0];
+    for (int i = 1; i < cantidad; i++) {
+        if (procesos[i].prioridad < ganador->prioridad) {
+            ganador = &procesos[i];
+        }
+    }
+    return ganador;
+}
+
+int main() {
+    printf("========================================\n");
+    printf(" Estudiante: Yidel Huamani\n");
+    printf(" Curso: Sistemas Operativos (IS380)\n");
+    printf("========================================\n\n");
+
+    struct Proceso listaProcesos[5];
+
+    printf("--- REGISTRO DE PROCESOS (5) ---\n");
+    for (int i = 0; i < 5; i++) {
+        printf("\nProceso #%d:\n", i + 1);
+        printf("  Ingrese PID (ej. 101): ");
+        scanf("%d", &listaProcesos[i].pid);
+        printf("  Ingrese Nombre (ej. chrome): ");
+        scanf("%s", listaProcesos[i].nombre);
+        
+        do {
+            printf("  Ingrese Prioridad (1: Mas alta - 5: Mas baja): ");
+            scanf("%d", &listaProcesos[i].prioridad);
+            if (listaProcesos[i].prioridad < 1 || listaProcesos[i].prioridad > 5) {
+                printf("  [!] Debe ser un numero entre 1 y 5.\n");
+            }
+        } while (listaProcesos[i].prioridad < 1 || listaProcesos[i].prioridad > 5);
+    }
+
+    struct Proceso *procesoGanador = buscarMayorPrioridad(listaProcesos, 5);
+
+    printf("\n========================================\n");
+    printf("       PROCESO A EJECUTAR PRIMERO       \n");
+    printf("========================================\n");
+    if (procesoGanador != NULL) {
+        printf("  PID       : %d\n", procesoGanador->pid);
+        printf("  Nombre    : %s\n", procesoGanador->nombre);
+        printf("  Prioridad : %d\n", procesoGanador->prioridad);
+    }
+    printf("========================================\n");
+
+    return 0;
+}  
